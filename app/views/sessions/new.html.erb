@@ -1,2 +1,19 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h2>Вход в систему</h2>
+
+<%# Простейшая форма БЕЗ Rails хелперов %>
+<form action="/login" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Пароль</label>
+    <input type="password" id="password" name="password" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Войти</button>
+  <%= link_to 'Зарегистрироваться', signup_path, class: 'btn btn-link' %>
+</form>
